@@ -7,6 +7,8 @@ class Login(Container):
         self.alignment = alignment.center
         self.expand = True
         self.bgcolor = blue
+
+        # E-MAIL BOX Container
         self.email_box = Container(
             content = TextField(
                 border = InputBorder.NONE,
@@ -24,7 +26,30 @@ class Login(Container):
             border = border.all(width=1, color="bdcbf4"),
             border_radius = 30
         )
-        
+
+        # PASSWORD BOX Container
+        self.password_box = Container(
+            content = TextField(
+                border = InputBorder.NONE,
+                content_padding = padding.only(top=0,bottom=0,right=20,left=20),
+                hint_style = TextStyle(
+                    size=12, color = "#858796"
+                ),
+                hint_text = "Enter password ...",
+                cursor_color = "858796",
+                text_style = TextStyle(
+                    size = 14,
+                    color = "black"
+                ),
+                password = True,
+            ),
+            border = border.all(width=1, color="bdcbf4"),
+            border_radius = 30
+        )
+
+        ###
+        # CONTENT
+        ###
         self.content = Column(
             alignment = "center",
             horizontal_alignment="center",
@@ -43,6 +68,7 @@ class Login(Container):
                                 text_align = "center"
                             ),
                             self.email_box,
+                            self.password_box,
                         ]
                     )
                 )
