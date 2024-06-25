@@ -5,7 +5,7 @@ from pages.signup import Signup
 from pages.forgotpassword import ForgotPassword
 
 class Main(UserControl):
-    def __ini__(self, page: Page,):
+    def __init__(self, page: Page):
         super().__init__()
         self.page = page
         self.init_helper()
