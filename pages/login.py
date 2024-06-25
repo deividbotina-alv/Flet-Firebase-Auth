@@ -35,7 +35,7 @@ class Login(Container):
                 hint_style = TextStyle(
                     size=12, color = "#858796"
                 ),
-                hint_text = "Enter password ...",
+                hint_text = "Password",
                 cursor_color = "858796",
                 text_style = TextStyle(
                     size = 14,
@@ -45,6 +45,16 @@ class Login(Container):
             ),
             border = border.all(width=1, color="bdcbf4"),
             border_radius = 30
+        )
+
+        # FORGOT PASSWORD CONTAINER
+        self.forgot_password_box = Container(
+                content = Text(
+                    value = "Forgot Password?",
+                    color = "#4e73df",
+                    size = 12
+                    ),
+                on_click=lambda _: self.page.go("/forgotpassword")
         )
 
         ###
@@ -69,6 +79,12 @@ class Login(Container):
                             ),
                             self.email_box,
                             self.password_box,
+                            Container(height=0),
+                            self.forgot_password_box,
+                            Container(
+                                content = Text(value = "Login")
+                            )
+
                         ]
                     )
                 )
