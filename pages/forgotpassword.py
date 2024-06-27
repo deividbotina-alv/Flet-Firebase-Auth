@@ -27,6 +27,29 @@ class ForgotPassword(Container):
             border_radius = 30
         )
 
+        # ALREADY REGISTERED BUTTON
+        self.already_registered_button = Container(
+            content = Text(
+                value = "Already have an Account? Login!",
+                color="#4e73df",
+                size = 12
+            ),
+            on_click=lambda _: self.page.go("/login")
+        )
+
+        # CREATE AN ACCOUNT BUTTON
+        self.create_an_account_button = Container(
+            content = Text(
+                value = "Create an Account!",
+                color="#4e73df",
+                size = 12
+            ),
+            on_click=lambda _: self.page.go("/signup")
+        )
+
+        ###
+        # CONTENT
+        ###
         self.content = Column(
             alignment = "center",
             horizontal_alignment = "center",
@@ -58,9 +81,31 @@ class ForgotPassword(Container):
 
                             Container(height=0),
 
-                            self.email_box
+                            self.email_box,
+
+                            Container(
+                                alignment=alignment.center,
+                                bgcolor = "4e73df",
+                                height=40,
+                                border_radius=30,
+                                content = Text(
+                                    value="Reset Password",
+                                ),
+                                on_click = self.reset_password
+                            ),
+
+                            Container(height=10),
+
+                            self.create_an_account_button,
+
+                            self.already_registered_button
+
+
                         ]
                     )
                 )
             ]
         )
+
+    def reset_password(self, e):
+        pass

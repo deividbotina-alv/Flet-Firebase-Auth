@@ -86,6 +86,7 @@ class Login(Container):
             controls = [
                 Container(
                     width = 500,
+                    border_radius=12,
                     padding = 40,
                     bgcolor = "white",
                     content=Column(
